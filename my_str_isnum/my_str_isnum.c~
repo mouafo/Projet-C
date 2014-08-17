@@ -1,0 +1,33 @@
+int my_str_isnum(char *str)
+{
+  int i;
+
+  i = 0;
+  while (str[i] != 0)
+    {
+      if (str[i] < '0' || str[i] >'9')
+	{
+	  return 0;
+	}
+      i++;
+    }
+  return 1;
+}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main ()
+{
+  char ch[2048];
+  char chr[2048];
+  int i,j;
+
+
+  strcpy(ch,"");
+  strcpy(chr,"");
+  i = my_str_isnum(ch);
+  printf("est un num ? (oui=1 et non=0  -> %d\n", i);
+  j = my_str_isnum(chr);
+  printf("est un num ? (oui=1 et non=0  -> %d\n", j);
+  return (0);
+}

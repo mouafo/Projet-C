@@ -1,0 +1,22 @@
+#ifndef __MAIN_H__
+#define __MAIN_H__
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+
+
+int	all_ls(char* option, int index, char** argv);
+char*	apply_e(char *ligne_lue);
+int	simple_ls_opt(char *option);
+char*	verify_option(char *options);
+char*	get_option(int argc, char **argv);
+int	get_indexFile(int argc, char **argv);
+int	apply_opt_all (char* option, int i, char* ligne);
+int     apply_opt_simple(char* option, int i, char* ligne);
+int	lire_fichier(char* ligne, FILE* flux, char* option);
+void    erreur (char* url);
+char*   f_space(int index);
+
+#endif

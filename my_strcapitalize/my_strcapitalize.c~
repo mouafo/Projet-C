@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char my_strupcase (char str)
+{
+  if (str > 96 && str < 123)
+    {
+      str = str - 32; 
+    }
+  return (str);
+}
+
+char *my_strcapitalize (char *str)
+{
+  int i;
+
+  i = 0;
+  while (str[i] != 0)
+    {
+      if (i == 0)
+	  str[i] = my_strupcase(str[i]);
+      if (str[i-1] == ' ')
+	{
+	  str[i] = my_strupcase(str[i]);
+	}
+      else
+        {
+          if (str[i] > 64 && str[i] < 91 && i != 0)
+              str[i] = str[i] + 32;
+        }
+      i++;
+    }
+  return (str);
+}
+
+int main ()
+{
+  char *ch;
+  char *chr;
+  int i,j;
+  chr = malloc (1024*sizeof(char));
+  ch = malloc (1024*sizeof(char));
+  strcpy(ch,"salut, comment ca va? 42mots quarante-deux; cinquante+et+un");
+  chr = my_strcapitalize(ch);
+  printf("%s\n", chr);
+  return (0);
+}

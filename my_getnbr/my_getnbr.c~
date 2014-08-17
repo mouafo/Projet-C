@@ -1,0 +1,76 @@
+/*
+** my_getnbr.c for my_getnbr in /Users/mouafo/Documents/ETNA1/C/jour_2/mouafo_a/my_getnbr
+** 
+** Made by MOUAFO TCHUENTEU Aymard Gatien
+** Login   <mouafo_a@etna-alternance.net>
+** 
+** Started on  Tue Mar 25 11:06:52 2014 MOUAFO TCHUENTEU Aymard Gatien
+** Last update Tue Mar 25 13:10:39 2014 MOUAFO TCHUENTEU Aymard Gatien
+*/
+#include <stdio.h>
+int func_unit(char *str);
+
+int my_getnbr(char *str)
+{
+  int unit;
+  unit = func_unit(str);
+  int nbre = 0;
+  int nbre_temp = 0;
+  if(*str == '-')
+    {
+      str++;
+      while(*str != 0)
+	{
+	  if(*str >= 48 && *str <= 57)
+	    {
+	      nbre_temp = *str - 48;
+	      nbre_temp = nbre_temp * unit;
+	      nbre = nbre + nbre_temp;
+	      unit = unit / 10;
+	      str++;
+	    }
+	  else
+	    {
+	      return (-1);
+	    }
+	}
+      nbre= nbre * -1;
+    }
+  else
+    {
+      while(*str != 0)
+	{
+	  if(*str >= 48 && *str <= 57)
+	    {
+	      nbre_temp = *str - 48;
+	      nbre_temp = nbre_temp * unit;
+	      nbre = nbre + nbre_temp;
+	      unit = unit / 10;
+	      str++;
+	    }
+	  else
+	    {
+	      return (-1);
+	    }
+	}
+    }
+  return (nbre);
+}
+
+
+int func_unit(char *str)
+{
+  int unit = 1;
+  int i = 0;
+  int cpt = 0;
+  while(*str != 0)
+    {
+      cpt++;
+      str++;
+    }
+  for (i=1;i<cpt;i++)
+    {
+      unit = unit * 10;
+    }
+  return (unit);
+}

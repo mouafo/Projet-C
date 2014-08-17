@@ -1,0 +1,9 @@
+char *my_strcpy (char *dest, char *scr)
+{
+  while (*scr != 0)
+    {
+      *dest = *scr;
+      scr++;
+    }
+  return (dest);
+}

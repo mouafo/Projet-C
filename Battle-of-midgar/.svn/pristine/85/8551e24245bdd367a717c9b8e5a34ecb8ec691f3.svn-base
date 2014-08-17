@@ -1,0 +1,33 @@
+#include "main.h"
+
+int main(int argc, char **argv) 
+{
+  	t_heros *player;
+	
+	t_attack *l_attack;
+  t_attack *tmp;
+  l_attack = f_init();
+  tmp = l_attack;
+  while (tmp != 0) /* je continue tant que je ne suis pas sur le maillon NULL */
+    {
+      printf("name = %s\n",(tmp->name));
+      printf("PV heros = %d\n",(tmp->PV_heros));
+      printf("PM heros = %d\n",(tmp->PM_heros));
+      printf("PV monstre = %d\n",(tmp->PV_monster));
+      printf("PM monstre = %d\n\n\n",(tmp->PM_monster));
+      /* la valeur du pointeur est égale à l’adresse du maillon suivant */
+      tmp = tmp->next;
+    }
+  l_attack = f_get_game (l_attack);
+  printf("name = %s\n",(l_attack->name));
+  printf("PV heros = %d\n",(l_attack->PV_heros));
+  printf("PM heros = %d\n",(l_attack->PM_heros));
+  printf("PV monstre = %d\n",(l_attack->PV_monster));
+  printf("PM monstre = %d\n\n\n",(l_attack->PM_monster));
+
+ 	player = get_name(argc ,argv);
+	if (player != 0)
+		printf ("%s\n", player->name);
+
+  	return (0);
+}

@@ -1,0 +1,44 @@
+#include "fonction.h"
+
+void my_putchar(char c)
+{
+  write(1, &c, 1);
+}
+
+int my_strcmp(char *s1, char *s2)
+{
+  int   i;
+
+  i = 0;
+  while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+    i++;
+  return (s1[i] - s2[i]);
+}
+int my_putstr(char *str)
+{
+  int  i;
+
+  i = 0;
+  while (str[i] != '\0')
+    {
+      my_putchar(str[i]);
+      i++;
+    }
+  return (0);
+}
+
+char   *readLine()
+{
+  size_t   ret;
+  char     *buff;
+
+  if ((buff = malloc(sizeof(*buff) * (50 + 1))) == NULL)
+    return (NULL);
+  if ((ret = read(0, buff, 50)) > 1)
+    {
+      buff[ret - 1] = '\0';
+      return (buff);
+    }
+  buff[0] = '\0';
+  return (buff);
+}

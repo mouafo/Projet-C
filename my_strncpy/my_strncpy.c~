@@ -1,0 +1,39 @@
+char *my_strcpy (char *dest, char *scr)
+{
+  while (*scr != 0)
+    {
+      *dest = *scr;
+      scr++;
+    }
+  return (dest);
+}
+
+char *my_strncpy (char *dest, char *scr, int n)
+{
+  int i;
+  int cpt;
+  char *tmp;
+
+  tmp = my_strcpy (dest, scr);
+  while (*tmp != 0)
+    {
+      cpt++;
+      tmp++;
+    }
+  if (n <= cpt)
+    {
+      if (n == 0)
+	{
+	  *dest = '\0';
+	}
+      for (i = 0 ; i < n ; i++)
+	{
+	  dest[i] = scr[i];
+	}
+    }
+  else
+    {
+      dest =my_strcpy (dest, scr);
+    }
+  return (dest);
+}

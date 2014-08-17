@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int f_word_count(char *str)
+{
+  int j;
+  int i;
+
+  j = 0;
+  i = 0;
+  while (str[j] != '\n' && str[j] != 0)
+    {
+      if (((str[j] >= 'a' && str[j] <= 'z') || (str[j] >= 'A' && str[j] <= 'Z') || (str[j] >= '0' && str[j] <= '9')) && (str[j+1] <= 32 || str[j+1] == 0))
+	i++;
+      j++;
+    }
+  return i;
+}
+char **f_wordtab(char *str, char **tab, int len )
+{
+  int i;
+  int j;
+  int k;
+  for (i = 0 ; i < len; i++)
+    {
+      while (*str <= 32)
+        str++;
+      j = 0;
+      while (str[j] != ' ' && str[j] != 0)
+        j++;
+      tab[i] = malloc((j+1) * sizeof(char));
+      k = 0;
+      while (*str > 32 && *str != 0 && *str != '\n')
+        {
+	  tab[i][k] = *str;
+	  k++;
+          str++;
+        }
+      tab[i][k] = '\0';
+    }
+  return (tab);
+}
+
+char    **my_str_to_wordtab(char *str)
+{
+  int len;
+  char **tab;
+
+  len = f_word_count(str);
+  tab = malloc(len * sizeof(*tab));
+  tab = f_wordtab (str, tab, len);
+  return (tab);
+}
+
+int main ()
+{
+  char **tab; int i;
+    *tab  = malloc ( 1024 * sizeof(char));
+    tab  = malloc ( 1024 * sizeof(char));
+    char *s;
+    s = malloc ( 1024 * sizeof(char));
+    strcpy(s,"\t   ca va\t ca  ma\trche\t   de ouf et tout");
+  tab = my_str_to_wordtab(s);
+  for (i = 0 ;i<9 ; i++){
+    printf("%s\n", tab[i]); }
+  return 0;
+}

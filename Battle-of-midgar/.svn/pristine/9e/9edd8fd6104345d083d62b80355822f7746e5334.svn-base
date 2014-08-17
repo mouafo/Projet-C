@@ -1,0 +1,36 @@
+#include "main.h"
+
+int main(int argc, char **argv) 
+{
+  t_heros *player;	
+  t_attack *l_attack;
+  t_monster *monst;
+
+  player = get_name(argc ,argv);
+ if (player == 0)
+    return (0);
+  monst = get_monster();
+  l_attack = f_init();
+  l_attack = f_get_game (l_attack);
+
+  printf("name = %s\n",(l_attack->name));
+  printf("PV heros = %d\n",(l_attack->PV_heros));
+  printf("PM heros = %d\n",(l_attack->PM_heros));
+  printf("PV monstre = %d\n",(l_attack->PV_monster));
+  printf("PM monstre = %d\n\n\n",(l_attack->PM_monster));     
+  printf(" ---- attaque utiliser ----\n");
+  printf("name = %s\n",(l_attack->name));
+  printf("PV heros = %d\n",(l_attack->PV_heros));
+  printf("PM heros = %d\n",(l_attack->PM_heros));
+  printf("PV monstre = %d\n",(l_attack->PV_monster));
+  printf("PM monstre = %d\n\n\n",(l_attack->PM_monster));
+
+  printf("\n ---- ennemy stat before ---- \n");
+  printf("PV ennemy = %d\n",(monst->PV));
+  printf("PM ennemy = %d\n",(monst->PM));
+  f_use_attack (player, monst, l_attack);
+  printf("\n ---- ennemy stat after ---- \n");
+  printf("PV ennemy = %d\n",(monst->PV));
+  printf("PM ennemy = %d\n",(monst->PM));
+  return (0);
+}

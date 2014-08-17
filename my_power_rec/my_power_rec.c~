@@ -1,0 +1,26 @@
+#include <stdio.h>
+int my_power_rec(int nb, int pow);
+int main(){int res = my_power_rec(3,3);
+  printf("power = %d", res); return (0);  }
+
+int my_power_rec (int nb, int power)
+{
+  int result;
+
+  if (power == 0)
+    {
+      return (1);
+    }
+  else
+    {
+      if (power < 0)
+        {
+	  return (0);
+        }
+      else
+        {
+          result = nb * my_power_rec (nb, power - 1);
+        }
+    }
+  return (result);
+}

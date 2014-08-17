@@ -1,0 +1,38 @@
+/*
+** op.c for op in /Users/mouafo/Documents/ETNA1/C/jour_8/mouafo_a/do-op
+** 
+** Made by MOUAFO TCHUENTEU Aymard Gatien
+** Login   <mouafo_a@etna-alternance.net>
+** 
+** Started on  Thu Apr  3 22:27:12 2014 MOUAFO TCHUENTEU Aymard Gatien
+** Last update Thu Apr  3 22:27:18 2014 MOUAFO TCHUENTEU Aymard Gatien
+*/
+int sous (int a, int b)
+{
+  return (a - b);
+}
+
+int mult (int a, int b)
+{
+  return (a * b);
+}
+
+int div (int a, int b)
+{
+  if (b == 0)
+    return (-5);
+  a = a / b;
+  return (a);
+}
+
+int mod (int a, int b)
+{
+  if (b == 0)
+    return (-5);
+  return (a % b);
+}
+
+int add (int a, int b)
+{
+  return (a + b);
+}

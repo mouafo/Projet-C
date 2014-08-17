@@ -1,0 +1,24 @@
+#include "get_info_game.h"
+int *f_stat()
+{
+  int *tab;
+
+  tab =malloc (4 * sizeof(int));
+  tab[0] = 0;
+  tab[1] = 0;
+  tab[2] = 0;
+  tab[3] = 0;
+  return tab;
+}
+
+int *f_libra()
+{
+  int *tab;
+
+  tab =malloc (4 * sizeof(int));
+  tab[0] = 0;
+  tab[1] = -1;
+  tab[2] = 0;
+  tab[3] = 0;
+  return tab;
+}

@@ -1,0 +1,25 @@
+#include "fonction.h"
+
+int  my_strlen(char *str)
+{
+  int  cpt;
+  
+  cpt = 0;
+  while (str[cpt] != 0)
+    {
+      cpt++;
+    }
+  return cpt;
+}
+
+char *my_strcpy(char *dest, char *scr)
+{
+  int taille;
+  int i;
+  taille = my_strlen(scr);
+  for (i = 0; i <= taille; i++)
+    {
+      dest[i] = scr[i];
+    }  
+  return (dest);
+}

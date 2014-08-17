@@ -1,0 +1,45 @@
+#include "main.h"
+
+int main(int argc, char **argv) 
+{
+  t_heros *player;	
+  t_attack *l_attack;
+  t_attack *attack;
+  t_monster *monster;
+  t_attack *m_attack;
+  t_attack *attack_monster;
+
+  player = get_name(argc ,argv);
+  if (player == 0)
+    return (0);
+  monster = get_monster();
+  l_attack = f_init();
+  attack_monster = f_init_monstre();
+  while (player->PV > 0 || monster->PV > 0)
+    {
+      attack = f_get_game(l_attack);
+      if (my_strcmp(attack->name,"doom") == 0)
+	return (0);
+      f_use_attack(player, monster, attack);
+      if (my_strcmp(attack->name,"stat") == 0 || my_strcmp(attack->name,"libra") == 0)
+	{
+	  if (my_strcmp(attack->name,"stat") == 0)
+	    f_show_stat(player);
+	  else
+	    f_show_stat_monster(monster);
+	}
+      else
+	{
+	  show_action_heros(player, attack);
+	  show_action_monster(monster, attack);
+	  m_attack = get_attack_monster(attack_monster);
+	  //	  printf("attack du monstre %s", m_attack->name);
+	  f_use_attack(player, monster, m_attack);
+	  my_putstr("\n");
+	  show_action_heros(player, m_attack);
+          show_action_monster(monster, m_attack);
+	  my_putstr("\n");
+	}
+    }
+  return (0);
+}

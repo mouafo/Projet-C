@@ -1,0 +1,78 @@
+#include "get_info_game.h"
+#include "fonction.h"
+#include "struct.h"
+
+t_attack  *my_find_elm_eq_in_list(t_attack *begin, void *data_ref, int (*cmp)(char *, char *))
+{
+  int i;
+
+  while (begin != 0)
+    {
+      if (cmp (begin->name, data_ref) == 0)
+       {
+       return (begin);
+       }
+      begin = begin->next;
+    }
+  return (NULL);
+}
+
+t_attack *f_init ()
+{
+  char *nameg;
+  int tab[5];
+  t_attack *new;
+  
+  new = NULL;
+  nameg = "attack";
+  tab = {0, 0, -7, 0, 0};
+  add_node(&new, nameg, tab);
+  nameg = "slash";
+  tab ={ -2, 0, -10, 0, 1};
+  add_node(&new, nameg, tab);
+  nameg= "fire";
+  tab = {0, -3, -10, 0, 2};
+  add_node(&new, nameg, tab);
+  nameg = "thunder";
+  tab = {0, -5, -15, 0, 3};
+  nameg = "stat";
+  tab = {0, 0, 0, 0, 4};
+  add_node(&new, nameg, tab);
+  nameg = "libra";
+  tab = {0, -1, 0, 0, 5};
+  add_node(&new, nameg, tab);
+
+  return (new);
+}
+
+int add_node (t_attack **list, char *nameg, int *tab)
+{
+  t_attack *node;
+    
+  node = malloc(sizeof(*node));
+  if (node == 0)
+    return (0);
+  node->next = *list;
+  node->name = nameg;
+  node->PV_heros = tab[0];
+  node->PM_heros = tab[1];
+  node->PV_monster = tab[2];
+  node->PM_monster = tab[3];
+  node->id = tab[4];
+  *list = node;
+  return (1);
+}
+
+t_attack *f_get_game (t_attack *begin)
+{
+  t_attack *attack;
+  char *jeu;
+  do
+    {
+      write (1,"Your Turn =>  ",15);
+      jeu = readline();
+      attack = my_find_elm_eq_in_list(begin, jeu, my_strcmp);
+    }
+  while (attack == NULL);
+    return (attack);
+}

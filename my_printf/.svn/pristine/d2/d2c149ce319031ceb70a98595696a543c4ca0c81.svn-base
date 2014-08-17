@@ -1,0 +1,44 @@
+#include "ls.h"
+
+void option_R(S_dir param)
+{
+  
+}
+
+void option_d(S_dir param)
+{
+  int i;
+
+  i = 0;
+  while (param.dirs[i] != 0)
+  {
+    my_putstr(param.dirs[i]);
+    my_putstr("\t\t");
+    i++;
+  }
+}
+
+void option_t(S_dir param)
+{
+  
+}
+
+struct dirent** get_files(S_dir param)
+{
+  DIR* rep;
+  int i;
+  struct dirent* fichierLu;
+  struct dirent** tab_fichier;
+
+  i = 0;
+  tab_fichier = (struct dirent**)malloc(1000 * sizeof(struct dirent*));
+  rep = opendir(param.dirs[0]);
+  while ((fichierLu = readdir(rep)) != NULL)
+  {
+  	tab_fichier[i] = fichierLu;
+	i++;
+  }
+  //free(tab_fichier);
+  closedir(rep);
+  return (tab_fichier);
+}

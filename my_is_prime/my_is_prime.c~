@@ -1,0 +1,19 @@
+#include <stdio.h>
+int my_is_prime (int nombre)
+{
+  int i;
+  int test;
+
+  test = 1;
+  for (i = 2 ; i < nombre / 2 ; i++)
+    {
+      if ( nombre % i  == 0 || nombre == 0)
+	{
+	  test = 0;
+	}
+    }
+  return (test);
+}
+
+int main(){int res = my_is_prime(-23);
+  printf("prime = %d", res); return (0);  }

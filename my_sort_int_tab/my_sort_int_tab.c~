@@ -1,0 +1,47 @@
+/*
+** my_sort_int_tab.c for my_sort_int_tab in /Users/mouafo/Documents/ETNA1/C/jour_2/mouafo_a/my_sort_int_tab
+** 
+** Made by MOUAFO TCHUENTEU Aymard Gatien
+** Login   <mouafo_a@etna-alternance.net>
+** 
+** Started on  Tue Mar 25 14:00:13 2014 MOUAFO TCHUENTEU Aymard Gatien
+** Last update Tue Mar 25 14:22:01 2014 MOUAFO TCHUENTEU Aymard Gatien
+*/
+#include <stdio.h>
+
+void my_sort_int_tab(int *tab, int taille)
+{
+  int *tab_2;
+  int i;
+  int j;
+  int tmp;
+  tab_2 = tab;
+  for(i=1;i<=taille;i++)
+    {
+      tab = tab_2;
+      for(j=0;j<taille-i;j++)
+	{
+	  if(*tab > *(tab+1))
+	    {
+	      tmp = *tab;
+	      *tab = *(tab+1);
+	      *(tab+1) = tmp;
+	    }
+	  tab++;
+	}
+    }
+}
+
+int main(){
+  int tab[9] = {17,2,4,5,2,7,1,5,1};
+  int i;
+  for(i=0;i<9;i++){
+    printf("tab = %d",tab[i]);
+  }
+  printf("   \n");
+  my_sort_int_tab(tab,9);
+  for(i=0;i<9;i++){
+    printf("tab = %d",tab[i]);
+  }
+  return(0);
+}

@@ -1,0 +1,47 @@
+#include "ls.h"
+
+void option_l(S_dir param)
+{
+  
+}
+
+void option_L(S_dir param)
+{
+  
+}
+
+void option_a(S_dir param)
+{
+  DIR* rep = NULL;
+  int i;
+  struct dirent* fichierLu = NULL;
+  rep = opendir(param.dirs[0]);
+  i = 4;
+  while ((fichierLu = readdir(rep)) != NULL)
+  { 
+      i++;
+      if (i % 5 != 0)
+      {
+        my_putstr(fichierLu->d_name);
+        my_putstr("\t\t");
+      }
+      else
+      {
+        my_putstr("\n");
+        my_putstr(fichierLu->d_name);
+        my_putstr("\t\t");
+      }
+  }
+  my_putstr("\n\n");
+  closedir(rep);
+}
+
+void option_A(S_dir param)
+{
+
+}
+
+void option_r(S_dir param)
+{
+  
+}

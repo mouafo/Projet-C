@@ -1,0 +1,39 @@
+int my_str_isalpha (char *str)
+{
+  int i;
+  int test;
+
+  i = 0;
+  test = 1;
+  while (str[i] != 0)
+    {
+      if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+	{
+	  test = 1;
+	}
+      else
+	{
+	  return 0;
+	}
+      i++;
+    }
+  return test;
+}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+  int main ()
+  {
+    char ch[2048];
+    char chr[2048];
+    int i,j;
+
+
+    strcpy(ch,"SfgsYshj");
+    strcpy(chr,"");
+    i = my_str_isalpha(ch);
+    printf("%d\n", i);
+    j = my_str_isalpha(chr);
+    printf("%d\n", j);
+    return (0);
+  }

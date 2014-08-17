@@ -1,0 +1,20 @@
+#ifndef __GET_INFO_GAME_H__
+#define __GET_INFO_GAME_H__
+
+#include "fonction.h"
+#include "struct.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+t_attack *f_init ();
+int add_node (t_attack **list, char *nameg, int *tab);
+t_attack *f_get_game (t_attack *begin);
+t_attack  *my_find_elm_eq_in_list(t_attack *begin, void *data_ref, int (*cmp)(char *, char *));
+int *f_attack();
+int *f_slash();
+int *f_fire();
+int *f_thunder();
+int *f_stat();
+int *f_libra();
+#endif

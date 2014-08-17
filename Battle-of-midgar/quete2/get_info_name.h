@@ -1,0 +1,10 @@
+#ifndef __GET_INFO_NAME_H__
+#define __GET_INFO_NAME_H__
+
+#include "fonction.h"
+#include "struct.h"
+
+t_heros	 *get_name(int argc, char **argv);
+t_monster *get_monster();
+
+#endif

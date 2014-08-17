@@ -1,0 +1,11 @@
+char *my_strlowcase (char *str)
+{
+  while (*str != 0)
+    {
+      if (*str > 64 && *str < 91)
+	{
+	  *str = *str + 32; 
+	}
+    }
+  return (str);
+}

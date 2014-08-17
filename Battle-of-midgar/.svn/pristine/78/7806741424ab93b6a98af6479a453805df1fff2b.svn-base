@@ -1,0 +1,46 @@
+/*
+** get_info_name.c for get_info_name in /Users/Ironika/Documents/Piscine_C/Midgar
+** 
+** Made by HOQUET kevin
+** Login   <hoquet_k@etna-alternance.net>
+** 
+** Started on  Fri Apr  4 20:08:08 2014 HOQUET kevin
+** Last update Fri Apr  4 21:20:13 2014 HOQUET kevin
+*/
+#include "get_info_name.h"
+
+t_heros	 *get_name(int argc, char **argv)
+{
+  int		i;
+  t_heros	*player;
+  t_monster *monster;
+  char*		pseudo;
+
+  i = 1;
+  pseudo = "Enter parameter -n and your Player Name\n"; 
+  if (argc <= 1)
+    {
+      my_putstr(pseudo);
+      return (0);
+    }
+  player = malloc(sizeof(t_heros));
+  monster = malloc(sizeof(t_monster));
+    if (player == 0)
+    return (0);
+  player->name = "Chuck Norris";
+  player->PV = 100;
+  player->PM = 30;
+  monster->name = "Monstre 1";
+  monster->PV = 75;
+  monster->PM = 20;
+  while (i < argc)
+    {
+      if ( my_strcmp(argv[i], "-n") == 0)
+          if (i + 1 < argc) 
+            player->name = argv[i + 1];
+      i++;
+    }
+  return (player);
+}
+
+

@@ -1,0 +1,50 @@
+int  my_swap(char *nbr1, char *nbr2)
+{
+  char  temp;
+  temp  = *nbr1;
+  *nbr1 = *nbr2;
+  *nbr2 = temp;
+  return 0;
+}
+
+int my_strlen (char *scr)
+{
+  int cpt;
+
+  cpt = 0;
+  while (*scr != 0)
+    {
+      cpt++;
+      scr++;
+    }
+  return (cpt);
+}
+
+char *my_revstr(char *str)
+{
+  int taille;
+  int i;
+
+  taille = my_strlen (str);
+  i = 0;
+  while (i < taille-1)
+    {
+      my_swap(&str[i],&str[taille-1]);
+      i++;
+      taille--;
+    }
+  return (str);
+}
+#include <stdlib.h>
+#include <stdio.h>
+int main ()
+{
+  char *ch;
+  ch = malloc (sizeof(char));
+char *chr;
+chr = malloc (sizeof(char));
+chr = "bonjour";
+ch = my_revstr(chr);
+printf("%s", ch);
+return (0);
+}

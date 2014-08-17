@@ -1,0 +1,12 @@
+#include "main.h"
+
+int main(int argc, char **argv) 
+{
+  	t_heros *player;
+
+ 	player = get_name(argc ,argv);
+	if (player != 0)
+		printf ("%s\n", player->name);
+
+  	return (0);
+}

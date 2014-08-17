@@ -1,0 +1,87 @@
+#include "ls.h"
+
+void controller(S_dir param)
+{
+  int i;
+
+  i = 0;
+  while (param.dirs[i] != 0)
+    i++;
+
+  if (i <= 1 && param.dirs[0] != 0)
+    if (my_strcmp(param.option, "") == 0)
+      show_noOpt(param);
+    else
+      Apply_Opt_Single(param);
+  else
+    if (my_strcmp(param.option, "") == 0)
+      Apply_noOpt_More(param);
+    else
+      Apply_Opt_More(param);
+}
+
+void show_noOpt(S_dir param)
+{
+  int i;
+  int j;
+  struct dirent** tab_file;
+
+  i = 4;
+  j = 0;
+  tab_file = get_files(param);
+  while (tab_file[j] != 0)
+  {
+    if (tab_file[j]->d_name[0] != '.')
+    {
+      i++;
+      if (i % 5 != 0)
+        my_putstr(my_strcat(tab_file[j]->d_name, "\t\t"));
+      else
+        my_putstr(my_strcat(my_strcat("\n",tab_file[j]->d_name), "\t\t"));
+    }
+    j++;
+  }
+  my_putstr("\n\n");
+}
+
+void Apply_Opt_Single(S_dir param)
+{
+  
+}
+
+void Apply_noOpt_More(S_dir param)
+{
+  int i;
+  S_dir temp;
+
+  i = 0;
+  temp = param;
+  while (param.dirs[i] != 0)
+  {
+    my_putstr(param.dirs[i]);
+    my_putstr(" :\n");
+    temp.dirs[0] = param.dirs[i];
+    show_noOpt(temp);
+    my_putstr("\n");
+    i++;
+  }
+}
+
+void Apply_Opt_More(S_dir param)
+{
+  int i;
+  S_dir temp;
+
+  i = 0;
+  temp = param;
+  while (param.dirs[i] != 0)
+  {
+    my_putstr(param.dirs[i]);
+    my_putstr(" :\n");
+    temp.dirs[0] = param.dirs[i];
+    Apply_Opt_Single(temp);
+    my_putstr("\n\n");
+    i++;
+  }
+}
+

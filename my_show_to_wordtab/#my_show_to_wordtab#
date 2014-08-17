@@ -1,0 +1,14 @@
+int my_show_to_wordtab(char **tab);
+{
+  char **tab; int i;
+    *tab  = malloc ( 1024 * sizeof(char));
+    tab  = malloc ( 1024 * sizeof(char));
+    char *s;
+    s = malloc ( 1024 * sizeof(char));
+    strcpy(s,"\t   ca va\t ca  ma\trche\t   de ouf et tout");
+  tab = my_str_to_wordtab(s);
+  for (i = 0 ;i<9 ; i++){
+    printf("%s\n", tab[i]); }
+  return 0;
+}
+
